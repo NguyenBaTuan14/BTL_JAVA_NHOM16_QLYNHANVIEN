@@ -210,12 +210,12 @@ public class DangKy extends JFrame {
                         "Đăng ký không thành công", JOptionPane.ERROR_MESSAGE);
                 
             } else {
-                
-                if(!(txtMatKhau.getPassword().toString().equals(txtMatKhauAgain.getPassword().toString()))){
+                System.out.println(txtMatKhau.getText()+",    "+txtMatKhauAgain.getText());
+                if(!(txtMatKhau.getText().equals(txtMatKhauAgain.getText()))){
                 	JOptionPane.showMessageDialog(this, "Mật khẩu nhập lại không khớp",
                             "Đăng ký không thành công", JOptionPane.ERROR_MESSAGE);
                 }else {
-                	tkdk = new TaiKhoan(txtTenDangNhap.getText(),txtMatKhau.getPassword().toString());
+                	tkdk = new TaiKhoan(txtTenDangNhap.getText(),txtMatKhau.getText());
                 	TaiKhoan.taiKhoans.add(tkdk);
                 	TaiKhoan.ghiDuLieu();
                 	JOptionPane.showMessageDialog(this, "Tài khoản đã được lưu",
