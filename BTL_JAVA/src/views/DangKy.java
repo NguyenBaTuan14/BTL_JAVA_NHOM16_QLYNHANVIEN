@@ -210,7 +210,7 @@ public class DangKy extends JFrame {
                         "Đăng ký không thành công", JOptionPane.ERROR_MESSAGE);
                 
             } else {
-                System.out.println(txtMatKhau.getText()+",    "+txtMatKhauAgain.getText());
+                
                 if(!(txtMatKhau.getText().equals(txtMatKhauAgain.getText()))){
                 	JOptionPane.showMessageDialog(this, "Mật khẩu nhập lại không khớp",
                             "Đăng ký không thành công", JOptionPane.ERROR_MESSAGE);

@@ -145,9 +145,11 @@ public class DangNhap extends JFrame {
         JButton btnDangKy = new JButton();
         btnDangKy.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		
+        		dispose();
         		new DangKy().setVisible(true);
         	}
+
+			
         });
         btnDangKy.setText("Đăng Ký");
         btnDangKy.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -215,6 +217,7 @@ public class DangNhap extends JFrame {
 		// TODO Auto-generated method stub
 		
 	}
+	@SuppressWarnings("deprecation")
 	private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         TaiKhoan tkdn = null;
         if (check()) {

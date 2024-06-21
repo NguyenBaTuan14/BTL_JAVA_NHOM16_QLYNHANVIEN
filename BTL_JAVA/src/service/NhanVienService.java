@@ -94,7 +94,7 @@ public class NhanVienService implements InterfaceService<NhanVien> {
 			if (listNV.get(i).getHoTen().contains(ten)) {
 				listSearch.add(listNV.get(i));
 			}
-		}
+		} 
 		return listSearch;
 	}
 
