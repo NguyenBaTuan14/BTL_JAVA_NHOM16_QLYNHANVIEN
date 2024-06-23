@@ -219,7 +219,7 @@ public class DangKy extends JFrame {
                 	TaiKhoan.taiKhoans.add(tkdk);
                 	TaiKhoan.ghiDuLieu();
                 	JOptionPane.showMessageDialog(this, "Tài khoản đã được lưu",
-                            "Đăng ký thành công", JOptionPane.ERROR_MESSAGE);
+                            "Đăng ký thành công", JOptionPane.OK_OPTION);
                 	this.dispose();
                 	new DangNhap().setVisible(true);
                 }

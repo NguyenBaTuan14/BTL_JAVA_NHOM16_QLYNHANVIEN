@@ -191,7 +191,7 @@ public class BangChamCong extends JFrame {
         String header[] = {"MÃ", "Họ Tên", "Giờ vào sáng", "Giờ ra sáng","Giờ vào chiều", "Giờ ra chiều", "Ngày chấm", "Giờ làm (Ngày)", "Giờ làm (Tháng)"};
         tbChamCong.setModel(dtmChamCong);
         dtmChamCong.setColumnIdentifiers(header);
-//        addDL(listChamCong);
+        ChamCong.ghiDuLieu();
         docFile(listChamCong);
         showDataTable(listChamCong);
 	}
@@ -207,28 +207,13 @@ public class BangChamCong extends JFrame {
 	
 	public static void docFile(List<ChamCong> listChamCong) {
 		try {
-			FileInputStream fis = new FileInputStream("NhanVien.bin");
+			FileInputStream fis = new FileInputStream("ChamCong.bin");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			List<NhanVien> nvs = (List<NhanVien>) ois.readObject();
+			List<ChamCong> nvs = (List<ChamCong>) ois.readObject();
 			
-			for (NhanVien nv : nvs) {
-				ChamCong ccm = new ChamCong();
-				ccm.setMa(nv.getMa());
-				ccm.setHoTen(nv.getHoTen());
-				ccm.setGioVaoSang("7:30");
-				ccm.setGioRaSang("11:30");
-				ccm.setGioVaoChieu("13:30");
-				ccm.setGioRaChieu("17:30");
-				ccm.setNgayCham("26/06/2024");
-				ccm.setGioLamNgay("8");
-				ccm.setGioLamThang("208");
-				try {
-					listChamCong.add(ccm);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			for (ChamCong nv : nvs) {
 				
+				listChamCong.add(nv);
 			}
 			fis.close();
 			ois.close();

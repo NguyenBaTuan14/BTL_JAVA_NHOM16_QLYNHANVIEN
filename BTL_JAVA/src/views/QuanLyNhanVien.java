@@ -108,29 +108,9 @@ public class QuanLyNhanVien extends JFrame {
 
 		String[] headers = { "Mã", "Họ tên", "Năm sinh", "Giới tính", "Số điện thoại", "CCCD/CMT", "Địa chỉ" };
 		dtm.setColumnIdentifiers(headers);
-		addDL();
 		docFile();
 		showDataTable();
 		radioNam.setSelected(true);
-	}
-
-	public static void addDL() {
-		if (NhanVienService.nhanViens.size() == 0) {
-			NhanVienService.nhanViens
-					.add(new NhanVien("NV01", "Nguyễn Trà My", 2003, false, "0294475553", "00123654851", "Hà Nội"));
-			NhanVienService.nhanViens
-					.add(new NhanVien("NV03", "Trịnh Văn Bô", 1999, true, "0698547588", "01235569878", "Nghệ An"));
-			NhanVienService.nhanViens
-					.add(new NhanVien("NV02", "Nguyễn Tiến Mạnh", 2003, true, "0294475115", "00232365658", "Sài Gòn"));
-			NhanVienService.nhanViens
-					.add(new NhanVien("NV04", "Trần Văn Nam", 2003, true, "0294475115", "00232365658", "Ninh BÌnh"));
-			NhanVienService.nhanViens
-					.add(new NhanVien("NV06", "Đinh Văn Quang", 2003, true, "0294475115", "00232365658", "Hòa Bình"));
-			NhanVienService.nhanViens
-					.add(new NhanVien("NV05", "Nguyễn Thu Hằng", 2003, false, "0294475115", "00232365658", "Nam Định"));
-
-		}
-		NhanVienService.ghiDuLieu();
 	}
 
 	public static void docFile() {

@@ -16,6 +16,9 @@ import javax.swing.Timer;
 
 import java.awt.Color;
 import javax.swing.JProgressBar;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Loading extends JFrame {
 
@@ -114,26 +117,33 @@ public class Loading extends JFrame {
 		jLabel3.setText("Loading .........");
 
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+		jPanel1Layout.setHorizontalGroup(
+			jPanel1Layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jPanel1Layout.createSequentialGroup()
+					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanel1Layout.createSequentialGroup()
+							.addGap(199)
+							.addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE))
+						.addGroup(jPanel1Layout.createSequentialGroup()
+							.addGap(99)
+							.addComponent(prbLoading, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(jPanel1Layout.createSequentialGroup()
+							.addGap(188)
+							.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(99, Short.MAX_VALUE))
+		);
+		jPanel1Layout.setVerticalGroup(
+			jPanel1Layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jPanel1Layout.createSequentialGroup()
+					.addGap(45)
+					.addComponent(jLabel3)
+					.addGap(25)
+					.addComponent(prbLoading, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+					.addComponent(jLabel1)
+					.addGap(27))
+		);
 		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(190, 190, 190)
-						.addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 101,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(0, 0, Short.MAX_VALUE))
-				.addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
-						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(172, 172, 172).addComponent(jLabel1,
-								javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGroup(jPanel1Layout.createSequentialGroup().addGap(100, 100, 100).addComponent(prbLoading,
-								javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.PREFERRED_SIZE)))
-						.addContainerGap(99, Short.MAX_VALUE)));
-		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(45, 45, 45).addComponent(jLabel3)
-						.addGap(25, 25, 25)
-						.addComponent(prbLoading, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(39, 39, 39).addComponent(jLabel1).addGap(0, 25, Short.MAX_VALUE)));
 
 		getContentPane().add(jPanel1);
 

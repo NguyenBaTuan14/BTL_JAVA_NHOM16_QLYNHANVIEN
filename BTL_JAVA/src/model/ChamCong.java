@@ -4,7 +4,13 @@
  */
 package model;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ChamCong implements Serializable{
@@ -17,6 +23,9 @@ public class ChamCong implements Serializable{
     private String ngayCham;
     private String gioLamNgay;
     private String gioLamThang;
+    private static final long serialVersionUID = 1L;
+    
+    public static List<ChamCong> chamCongs = new ArrayList<>();
 
     public ChamCong() {
     }
@@ -111,6 +120,46 @@ public class ChamCong implements Serializable{
 	public Object[] getObject() {
         return new Object[]{ma, hoTen, gioVaoSang, gioRaSang,gioVaoChieu,gioRaChieu, ngayCham, gioLamNgay, gioLamThang};
     }
+	public static void ghiDuLieu() {
+		try {
+			FileOutputStream fos = new FileOutputStream("ChamCong.bin");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			try {
+				FileInputStream fis = new FileInputStream("NhanVien.bin");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				List<NhanVien> nvs = (List<NhanVien>) ois.readObject();
+				
+				for (NhanVien nv : nvs) {
+					ChamCong ccm = new ChamCong();
+					ccm.setMa(nv.getMa());
+					ccm.setHoTen(nv.getHoTen());
+					ccm.setGioVaoSang("7:30");
+					ccm.setGioRaSang("11:30");
+					ccm.setGioVaoChieu("13:30");
+					ccm.setGioRaChieu("17:30");
+					ccm.setNgayCham("26/06/2024");
+					ccm.setGioLamNgay("8");
+					ccm.setGioLamThang("208");
+					try {
+						chamCongs.add(ccm);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				fis.close();
+				ois.close();
+
+			} catch (Exception e) {
+			}
+			
+			oos.writeObject(ChamCong.chamCongs);
+			fos.close();
+			oos.close();
+		} catch (Exception e) {
+		}
+	}
 
     
 }
