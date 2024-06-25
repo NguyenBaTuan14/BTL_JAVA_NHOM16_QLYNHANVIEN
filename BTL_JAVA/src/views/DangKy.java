@@ -20,6 +20,11 @@ import javax.swing.JPasswordField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import java.awt.Component;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DangKy extends JFrame {
 
@@ -136,32 +141,46 @@ public class DangKy extends JFrame {
         jLabel4.setText("Nhập lại mật khẩu:");
         
         txtMatKhauAgain = new JPasswordField();
+        
+        JButton btnQuayLai = new JButton();
+        btnQuayLai.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		dispose();
+                new DangNhap().setVisible(true);
+        	}
+        });
+        btnQuayLai.setText("Quay Lại");
+        btnQuayLai.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        btnQuayLai.setBorder(null);
+        btnQuayLai.setBackground(new Color(255, 153, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1Layout.setHorizontalGroup(
         	jPanel1Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addGap(194)
-        			.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(211, Short.MAX_VALUE))
-        		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addGap(58)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(jLabel3)
-        				.addComponent(jLabel1)
-        				.addComponent(jLabel4))
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addComponent(btnDangKy, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap(143, Short.MAX_VALUE))
+        					.addGap(194)
+        					.addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
         				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGap(18)
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING, false)
-        						.addComponent(txtMatKhauAgain, GroupLayout.PREFERRED_SIZE, 256, GroupLayout.PREFERRED_SIZE)
-        						.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING, false)
-        							.addComponent(txtMatKhau, Alignment.LEADING)
-        							.addComponent(txtTenDangNhap, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)))
-        					.addContainerGap())))
+        					.addGap(58)
+        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jLabel3)
+        						.addComponent(jLabel1)
+        						.addComponent(jLabel4))
+        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(jPanel1Layout.createSequentialGroup()
+        							.addComponent(btnDangKy, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+        							.addGap(40)
+        							.addComponent(btnQuayLai, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+        						.addGroup(jPanel1Layout.createSequentialGroup()
+        							.addGap(18)
+        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING, false)
+        								.addComponent(txtMatKhauAgain, GroupLayout.PREFERRED_SIZE, 256, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(txtMatKhau)
+        								.addComponent(txtTenDangNhap, GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE))))))
+        			.addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
         	jPanel1Layout.createParallelGroup(Alignment.TRAILING)
@@ -181,10 +200,12 @@ public class DangKy extends JFrame {
         				.addComponent(jLabel4)
         				.addComponent(txtMatKhauAgain, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
         			.addGap(41)
-        			.addComponent(btnDangKy, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(btnDangKy, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(btnQuayLai, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
         			.addContainerGap(41, Short.MAX_VALUE))
         );
-        jPanel1Layout.linkSize(SwingConstants.VERTICAL, new Component[] {txtTenDangNhap, txtMatKhau, txtMatKhauAgain});
+        jPanel1Layout.linkSize(SwingConstants.VERTICAL, new Component[] {txtMatKhau, txtMatKhauAgain, txtTenDangNhap});
         jPanel1.setLayout(jPanel1Layout);
 
         getContentPane().add(jPanel1);
