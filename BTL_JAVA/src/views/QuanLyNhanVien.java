@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import model.ChamCong;
 import model.NhanVien;
 import service.NhanVienService;
 import views.ChonCongViec;
@@ -451,6 +452,7 @@ public class QuanLyNhanVien extends JFrame {
 							Integer.parseInt(txtNamSinh.getText().trim()), radioNam.isSelected(),
 							txtSoDienThoai.getText().trim(), txtCCCD.getText().trim(), txtDiaChi.getText().trim()));
 					NhanVienService.ghiDuLieu();
+					ChamCong.ghiDuLieu();
 					showDataTable();
 					JOptionPane.showMessageDialog(this, "Sửa thông tin nhân viên thành công");
 					reset();
@@ -472,6 +474,7 @@ public class QuanLyNhanVien extends JFrame {
 				nhanViens.delete(nhanViens.selectAll().get(row));
 				JOptionPane.showMessageDialog(this, "Xóa thành công");
 				nhanViens.ghiDuLieu();
+				ChamCong.ghiDuLieu();
 				reset();
 				showDataTable();
 			}

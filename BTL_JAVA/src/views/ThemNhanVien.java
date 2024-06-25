@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import model.ChamCong;
 import model.NhanVien;
 import service.NhanVienService;
 import views.ChonCongViec;
@@ -131,8 +132,8 @@ public class ThemNhanVien extends JFrame {
 //	            JOptionPane.showMessageDialog(this, "Họ tên không đúng định dạng");
 //	            return null;
 //	        }
-	        if (checkNgaySinh() == true) {
-	            JOptionPane.showMessageDialog(this, "Ngày sinh không hợp lệ");
+	        if (checkNamSinh() == true) {
+	            JOptionPane.showMessageDialog(this, "Năm sinh không hợp lệ");
 	            return null;
 	        }
 
@@ -340,6 +341,7 @@ public class ThemNhanVien extends JFrame {
 	            this.XoaForm();
 	            JOptionPane.showMessageDialog(this, "Thêm nhân viên thành công");
 	            this.service.ghiDuLieu();
+	            ChamCong.ghiDuLieu();
 	        } else {
 	            return;
 	        }
@@ -374,7 +376,7 @@ public class ThemNhanVien extends JFrame {
 	        this.txtCCCD.setText("");
 	    }
 
-	    private boolean checkNgaySinh() {
+	    private boolean checkNamSinh() {
 	        try {
 	            String nam = txtNamSinh.getText();
 	            SimpleDateFormat sdf = new SimpleDateFormat();

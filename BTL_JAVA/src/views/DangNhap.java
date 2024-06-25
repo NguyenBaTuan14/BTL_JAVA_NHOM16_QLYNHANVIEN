@@ -84,7 +84,6 @@ public class DangNhap extends JFrame {
 		setResizable(false);
 		initComponents();
         setLocationRelativeTo(null);
-        taiKhoanDefault();
         docFile();
         nhoMatKhau();
 	}
@@ -269,13 +268,6 @@ public class DangNhap extends JFrame {
         }
     }
 
-    public void taiKhoanDefault() {
-
-        TaiKhoan.taiKhoans.add(new TaiKhoan("lyxinh", "123"));
-        TaiKhoan.taiKhoans.add(new TaiKhoan("quanly", "123"));
-        TaiKhoan.ghiDuLieu();
-
-    }
     public void docFile() {
 		try {
 			FileInputStream fis = new FileInputStream("TaiKhoan.bin");

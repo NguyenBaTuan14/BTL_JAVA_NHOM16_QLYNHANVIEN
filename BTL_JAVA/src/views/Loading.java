@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import model.ChamCong;
+import model.NhanVien;
+import model.TaiKhoan;
+import service.NhanVienService;
 import views.DangNhap;
 import views.Loading;
 
@@ -70,6 +74,9 @@ public class Loading extends JFrame {
 		setResizable(false);
 		initComponents();
 		setLocationRelativeTo(null);
+		taiKhoanDefault();
+		addDL();
+		ChamCong.ghiDuLieu();
 		time = new Timer(20, (e) -> {
 			prbLoading.setValue(prbLoading.getValue() + 1 < 100 ? prbLoading.getValue() + 1 : 100);
 			if (prbLoading.getValue() == 99) {
@@ -78,6 +85,31 @@ public class Loading extends JFrame {
 			}
 		});
 		time.start();
+	}
+	public void taiKhoanDefault() {
+
+        TaiKhoan.taiKhoans.add(new TaiKhoan("lyxinh", "123"));
+        TaiKhoan.taiKhoans.add(new TaiKhoan("quanly", "123"));
+        TaiKhoan.ghiDuLieu();
+
+    }
+	public static void addDL() {
+		if (NhanVienService.nhanViens.size() == 0) {
+			NhanVienService.nhanViens
+					.add(new NhanVien("NV01", "Nguyễn Trà My", 2003, false, "0294475553", "00123654851", "Hà Nội"));
+			NhanVienService.nhanViens
+					.add(new NhanVien("NV03", "Trịnh Văn Bô", 1999, true, "0698547588", "01235569878", "Nghệ An"));
+			NhanVienService.nhanViens
+					.add(new NhanVien("NV02", "Nguyễn Tiến Mạnh", 2003, true, "0294475115", "00232365658", "Sài Gòn"));
+			NhanVienService.nhanViens
+					.add(new NhanVien("NV04", "Trần Văn Nam", 2003, true, "0294475115", "00232365658", "Ninh BÌnh"));
+			NhanVienService.nhanViens
+					.add(new NhanVien("NV06", "Đinh Văn Quang", 2003, true, "0294475115", "00232365658", "Hòa Bình"));
+			NhanVienService.nhanViens
+					.add(new NhanVien("NV05", "Nguyễn Thu Hằng", 2003, false, "0294475115", "00232365658", "Nam Định"));
+
+		}
+		NhanVienService.ghiDuLieu();
 	}
 
 	/**

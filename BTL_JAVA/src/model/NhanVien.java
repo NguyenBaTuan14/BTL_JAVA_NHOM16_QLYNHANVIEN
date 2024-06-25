@@ -91,7 +91,7 @@ public class NhanVien implements Serializable{
 
     @Override
     public String toString() {
-        return "NhanVien{" + "ma=" + ma + ", hoTen=" + hoTen + ", namSinh=" + namSinh + ", gioiTinh=" + gioiTinh + ", sdt=" + sdt + ", cccd=" + cccd + ", diaChi=" + diaChi + '}';
+        return "NhanVien{" + "ma=" + ma +  '}';
     }
     
 }

@@ -197,14 +197,14 @@ public class DangKy extends JFrame {
 	}
 	private void btnDangKyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         TaiKhoan tkdk = null;
+        
         if (check()) {
             for (TaiKhoan tk : TaiKhoan.taiKhoans) {
                 if (txtTenDangNhap.getText().equalsIgnoreCase(tk.getTaiKhoan())) {
                     tkdk = tk; // lấy tài khoản đăng nhập
                 }
             }
-            if (tkdk != null
-                    && new String(txtMatKhau.getPassword()).equalsIgnoreCase(tkdk.getMatKhau())) {
+            if (tkdk != null) {
                 //kiểm tra xem tài khoản có tồn tại không, nếu có kiểm tra mật khẩu có đúng không
             	JOptionPane.showMessageDialog(this, "Tài khoản đã tồn tại",
                         "Đăng ký không thành công", JOptionPane.ERROR_MESSAGE);

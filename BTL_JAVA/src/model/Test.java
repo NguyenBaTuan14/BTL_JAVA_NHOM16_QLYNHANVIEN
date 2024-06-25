@@ -2,10 +2,21 @@ package model;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
+public class test {
+	static List<ChamCong> listChamCong = new ArrayList<ChamCong>();
 	public static void main(String[] args) {
+		try {
+			docFile();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(TaiKhoan.taiKhoans);
+	}
+	public static void docFile() {
 		try {
 			FileInputStream fis = new FileInputStream("TaiKhoan.bin");
 			ObjectInputStream ois = new ObjectInputStream(fis);
@@ -16,9 +27,9 @@ public class Test {
 			}
 			fis.close();
 			ois.close();
-			System.out.println(TaiKhoan.taiKhoans);
 
 		} catch (Exception e) {
 		}
 	}
+
 }

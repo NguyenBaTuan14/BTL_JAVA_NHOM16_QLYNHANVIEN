@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 import model.ChamCong;
 import model.NhanVien;
+import model.TaiKhoan;
 import service.NhanVienService;
 import views.ChonCongViec;
 import views.BangChamCong;
@@ -29,7 +30,7 @@ public class BangChamCong extends JFrame {
      * Creates new form BangChamCong
      */
     private DefaultTableModel dtmChamCong = new DefaultTableModel();
-    private List<ChamCong> listChamCong = new ArrayList<>();
+    
 
 	/**
 	 * Launch the application.
@@ -191,29 +192,24 @@ public class BangChamCong extends JFrame {
         String header[] = {"MÃ", "Họ Tên", "Giờ vào sáng", "Giờ ra sáng","Giờ vào chiều", "Giờ ra chiều", "Ngày chấm", "Giờ làm (Ngày)", "Giờ làm (Tháng)"};
         tbChamCong.setModel(dtmChamCong);
         dtmChamCong.setColumnIdentifiers(header);
-        ChamCong.ghiDuLieu();
-        docFile(listChamCong);
-        showDataTable(listChamCong);
+        
+        
+        docFile();
+        showDataTable();
+        
 	}
-//	public static void addDL(List<ChamCong> listChamCong) {
-//        listChamCong.add(new ChamCong("NV01", "Nguyễn Trà My", "7:30", "11:30","13:30","17:30", "10/10/2024", "8", "300"));
-//        listChamCong.add(new ChamCong("NV02", "Nguyễn Tiến Mạnh", "7:30", "11:30","13:30","17:30", "10/10/2024", "8", "300"));
-//        listChamCong.add(new ChamCong("NV03", "Trịnh Văn Bô", "7:30", "11:30","13:30","17:30", "10/10/2024", "8", "300"));
-//        listChamCong.add(new ChamCong("NV04", "Trần Văn Nam", "7:30", "11:30","13:30","17:30", "10/10/2024", "8", "300"));
-//        listChamCong.add(new ChamCong("NV05", "Nguyễn Thu Hằng", "7:30", "11:30","13:30","17:30", "10/10/2024", "8", "300"));
-//        listChamCong.add(new ChamCong("NV06", "Đinh Văn Quang", "7:30", "11:30","13:30","17:30", "10/10/2024", "8", "300"));
-//
-//    }
 	
-	public static void docFile(List<ChamCong> listChamCong) {
+
+	
+	public static void docFile() {
 		try {
 			FileInputStream fis = new FileInputStream("ChamCong.bin");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			List<ChamCong> nvs = (List<ChamCong>) ois.readObject();
-			
+			ChamCong.chamCongs.removeAll(ChamCong.chamCongs);
 			for (ChamCong nv : nvs) {
 				
-				listChamCong.add(nv);
+				ChamCong.chamCongs.add(nv);
 			}
 			fis.close();
 			ois.close();
@@ -222,9 +218,9 @@ public class BangChamCong extends JFrame {
 		}
 	}
 
-    private void showDataTable(List<ChamCong> lists) {
+    private void showDataTable() {
         dtmChamCong.setRowCount(0);
-        for (ChamCong cc : lists) {
+        for (ChamCong cc : ChamCong.chamCongs) {
             dtmChamCong.addRow(cc.getObject());
         }
     }

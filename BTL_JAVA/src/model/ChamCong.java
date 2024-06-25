@@ -120,6 +120,12 @@ public class ChamCong implements Serializable{
 	public Object[] getObject() {
         return new Object[]{ma, hoTen, gioVaoSang, gioRaSang,gioVaoChieu,gioRaChieu, ngayCham, gioLamNgay, gioLamThang};
     }
+	
+	@Override
+	public String toString() {
+		return "ChamCong [ma=" + ma +  "]";
+	}
+
 	public static void ghiDuLieu() {
 		try {
 			FileOutputStream fos = new FileOutputStream("ChamCong.bin");
@@ -128,7 +134,7 @@ public class ChamCong implements Serializable{
 				FileInputStream fis = new FileInputStream("NhanVien.bin");
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				List<NhanVien> nvs = (List<NhanVien>) ois.readObject();
-				
+				ChamCong.chamCongs.removeAll(ChamCong.chamCongs);
 				for (NhanVien nv : nvs) {
 					ChamCong ccm = new ChamCong();
 					ccm.setMa(nv.getMa());

@@ -109,42 +109,5 @@ public class NhanVienService implements InterfaceService<NhanVien> {
 		}
 	}
 
-	public static void binaryOutputFile() throws IOException {
-		FileOutputStream of = new FileOutputStream("NhanVien.bin");
-		DataOutputStream out = new DataOutputStream(of);
-
-		for (int j = 0; j < NhanVienService.nhanViens.size(); j++) {
-			out.writeUTF(NhanVienService.nhanViens.get(j).getMa());
-			out.writeUTF(NhanVienService.nhanViens.get(j).getHoTen());
-			out.writeInt(NhanVienService.nhanViens.get(j).getNamSinh());
-			out.writeBoolean(NhanVienService.nhanViens.get(j).isGioiTinh());
-			out.writeUTF(NhanVienService.nhanViens.get(j).getSdt());
-			out.writeUTF(NhanVienService.nhanViens.get(j).getCccd());
-			out.writeUTF(NhanVienService.nhanViens.get(j).getDiaChi());
-
-		}
-		out.close();
-
-	}
-
-	public static void binaryInputFile(String maNV, String hoTen, int namSinh, boolean gioiTinh, String sdt,
-			String cccd, String diaChi) throws IOException {
-		FileInputStream inf = new FileInputStream("NhanVien.bin");
-		DataInputStream in = new DataInputStream(inf);
-		String ma, ten;
-		int namsinh;
-		boolean gioitinh;
-		String Sdt, Cccd, diachi;
-		
-		ma = in.readUTF();
-		ten = in.readUTF();
-		namsinh = in.readInt();
-		gioitinh = in.readBoolean();
-		Sdt = in.readUTF();
-		Cccd = in.readUTF();
-		diachi = in.readUTF();
-			
-		
-		in.close();
-	}
+	
 }
